@@ -175,5 +175,21 @@ namespace WpfAppSQL_Termekek
 
             return SQLSzukitettLista;
         }
+        
+ //---------------------------------------------------------------------------------------------------
+ 
+         private void btnMentes_Click(object sender, RoutedEventArgs e)
+        {
+            StreamWriter sw = new StreamWriter("szures.txt");
+
+            foreach (var adat in termekek)
+            {
+                sw.WriteLine($"{adat.Kategoria};{adat.Gyarto};{adat.Nev};{adat.Ar};{adat.Garido}");
+            }
+            sw.Close();
+
+            MessageBox.Show("A szűkített lista mentésre került!");
+        }        
+        
     }
 }
